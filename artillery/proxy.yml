@@ -1,0 +1,32 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 600
+      arrivalRate: 50
+  processor: './artillery_functions.js'
+scenarios:
+  - flow:
+      - function: 'generateRandomData'
+      - loop:
+          - get:
+              url: '/?event_id={{ $loopElement }}'
+          - log: 'id1 {{ id1 }} id2 {{ id2 }}'
+        over:
+          - '{{ id1 }}'
+          - '{{ id2 }}'
+# config:
+#   target: 'http://localhost:3001/rsvp'
+#   phases:
+#     - duration: 10
+#       arrivalRate: 50
+#   processor: './artillery_functions.js'
+# scenarios:
+#   - flow:
+#       - function: 'generateRandomData'
+#       - loop:
+#           - get:
+#               url: '/{{ $loopElement }}'
+#           - log: 'id {{ id1 }} id {{ id2 }}'
+#         over:
+#           - '{{ id }}'
+#           - '{{ id2 }}'
