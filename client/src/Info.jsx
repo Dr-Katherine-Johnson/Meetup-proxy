@@ -37,12 +37,15 @@ const Info = () => {
 
   return (
     <Grid className="info-container" style={{ position: 'sticky', top: 86 }}>
-      <Paper style={{
-        width: 340,
-        height: 96,
-        borderRadius: 8,
-        padding: 20
-      }} elevation={0}>
+      <Paper
+        style={{
+          width: 340,
+          height: 96,
+          borderRadius: 8,
+          padding: 20
+        }}
+        elevation={0}
+      >
         <Grid className="org-info">
           <img src="https://source.unsplash.com/random/56x56" />
           <Grid style={{ paddingLeft: 20 }}>
@@ -52,19 +55,30 @@ const Info = () => {
         </Grid>
         <ClickAwayListener onClickAway={handleClickAway}>
           <div className="help">
-            <HelpIcon className="help-icon" onClick={handleClick} fontSize="small" />
+            <HelpIcon
+              className="help-icon"
+              onClick={handleClick}
+              fontSize="small"
+            />
             {open ? (
-              <div className="help-text">Yuccie selvage tumeric put a bird on it chillwave everyday carry literally salvia chambray. Banh mi health goth drinking vinegar offal mustache green juice palo santo yuccie. </div>
+              <div className="help-text">
+                Yuccie selvage tumeric put a bird on it chillwave everyday carry
+                literally salvia chambray. Banh mi health goth drinking vinegar
+                offal mustache green juice palo santo yuccie.{' '}
+              </div>
             ) : null}
           </div>
         </ClickAwayListener>
       </Paper>
-      <Paper style={{
-        width: 340,
-        height: 512,
-        borderRadius: 8,
-        marginTop: 20
-      }} elevation={0}>
+      <Paper
+        style={{
+          width: 340,
+          height: 512,
+          borderRadius: 8,
+          marginTop: 20
+        }}
+        elevation={0}
+      >
         <Grid className="info">
           <CheckIcon className="icon" fontSize="large" />
           <Grid className="info-text">
@@ -89,39 +103,50 @@ const Info = () => {
               open={Boolean(anchorEl)}
               onClose={handleCloseCalendar}
             >
-              {calendars.map((calendar, i) => {
-                return <div key={i}>
-                  {i === calendars.length - 1 ?
+              {calendars.map((calendar, i) => (
+                <div key={i}>
+                  {i === calendars.length - 1 ? (
                     <>
-                      <div className="menu-item" onClick={handleCloseCalendar}>{calendar}</div>
+                      <div className="menu-item" onClick={handleCloseCalendar}>
+                        {calendar}
+                      </div>
                     </>
-                    :
+                  ) : (
                     <>
-                      <div className="menu-item" onClick={handleCloseCalendar}>{calendar}</div>
+                      <div className="menu-item" onClick={handleCloseCalendar}>
+                        {calendar}
+                      </div>
                       <Divider />
                     </>
-                  }
+                  )}
                 </div>
-              })}
+              ))}
             </Menu>
           </Grid>
         </Grid>
         <Grid className="info" style={{ paddingTop: 0 }}>
           <LocationOnOutlinedIcon className="icon" fontSize="large" />
           <Grid className="info-text">
-            <a href="https://www.google.com/maps/place/Hirshhorn+Museum/@38.8881608,-77.0251569,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b79cb8691d87:0x350463c3785a7599!8m2!3d38.8881608!4d-77.0229682" style={{ textDecoration: 'none', color: '#000' }}><div className="loc-link">Betterment</div>
+            <a
+              href="https://www.google.com/maps/place/Hirshhorn+Museum/@38.8881608,-77.0251569,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b79cb8691d87:0x350463c3785a7599!8m2!3d38.8881608!4d-77.0229682"
+              style={{ textDecoration: 'none', color: '#000' }}
+            >
+              <div className="loc-link">Betterment</div>
               <div>Independence Ave and 7th St</div>
               <div>Washington, DC 20560</div>
             </a>
           </Grid>
         </Grid>
         <a href="https://www.google.com/maps/place/Hirshhorn+Museum/@38.8881608,-77.0251569,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b79cb8691d87:0x350463c3785a7599!8m2!3d38.8881608!4d-77.0229682">
-          <img className="img-map" src="https://res.cloudinary.com/dg9yvxo3q/image/upload/v1578278124/map_cc7jfo.png" />
+          <img
+            className="img-map"
+            src="https://res.cloudinary.com/dg9yvxo3q/image/upload/v1578278124/map_cc7jfo.png"
+          />
         </a>
       </Paper>
       <div className="report">Report this event</div>
-    </Grid >
-  )
-}
+    </Grid>
+  );
+};
 
 export default Info;
